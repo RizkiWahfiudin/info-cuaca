@@ -1,9 +1,7 @@
 <?php
   include "function.php";
 
-  $date= date("d-m-Y");
-  $exten= explode("-", $date);
-  $lastupdate= $exten[0].' '.bulan($exten[1]).' '.$exten[2];
+  $kota = ["assets/img/logo/jakarta.png"=>"Jakarta","assets/img/logo/surabaya.png"=>"Surabaya","assets/img/logo/bandung.jpg"=>"Bandung","assets/img/logo/yogyakarta.png"=>"Yogyakarta"];
 ?>
 
 <!DOCTYPE html>
@@ -30,8 +28,6 @@
 </head>
 
 <body>
-  <?php $kota = ["assets/img/logo/jakarta.png"=>"Jakarta","assets/img/logo/surabaya.png"=>"Surabaya","assets/img/logo/bandung.jpg"=>"Bandung","assets/img/logo/yogyakarta.png"=>"Yogyakarta"]; ?>
-
   <header id="header" class="fixed-top">
     <div class="container d-flex align-items-center">
       <h1 class="logo mr-auto"><a href="index.html">Info Cuaca</a></h1>
@@ -55,13 +51,13 @@
             <div class="card mb-3" style="max-width: 500px;">
             <div class="row g-0">
               <div class="col-md-4">
-                <img src=<?php echo $key; ?> width="100px" class="mt-4 img-thumbnail rounded mx-auto d-block">
+                <img src=<?= $key; ?> width="100px" class="mt-4 img-thumbnail rounded mx-auto d-block">
               </div>
               <div class="col-md-8">
                 <div class="card-body">
-                  <h5 class="card-title"><?php echo $val; ?></h5>
+                  <h5 class="card-title"><?= $val; ?></h5>
                   <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content</p>
-                  <p class="card-text"><small class="text-muted">Last updated <?php echo $lastupdate ?></small></p>
+                  <p class="card-text"><small class="text-muted">Last updated <?= tanggal(); ?></small></p>
                 </div>
               </div>
             </div>
@@ -89,13 +85,8 @@
   <footer id="footer">
     <div class="container footer-bottom clearfix">
       <div class="copyright">
-        &copy; <?php echo date('Y'); ?> Created By <strong><span><a class="text-dark" href="https://rizkiwahfiudin.my.id/">Rizki Wahfiudin</a></span></strong>
+        &copy; <?= date('Y'); ?> Created By <strong><span><a class="text-dark" href="https://rizkiwahfiudin.my.id/">Rizki Wahfiudin</a></span></strong>
       </div>
-      <!-- <div class="social-media">
-        <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
-        <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
-        <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
-      </div> -->
       <div class="credits">
         Available On <a href="https://github.com/rizkiwahfiudin">GitHub</a>
       </div>
