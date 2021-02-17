@@ -1,7 +1,8 @@
 <?php
   include "function.php";
 
-  $kota = ["assets/img/logo/jakarta.png"=>"Jakarta","assets/img/logo/surabaya.png"=>"Surabaya","assets/img/logo/bandung.jpg"=>"Bandung","assets/img/logo/yogyakarta.png"=>"Yogyakarta"];
+  $provinsi = file_get_contents('https://ibnux.github.io/data-indonesia/propinsi.json');
+  $result = json_decode($provinsi);
 ?>
 
 <!DOCTYPE html>
@@ -25,6 +26,14 @@
   <link href="assets/vendor/venobox/venobox.css" rel="stylesheet">
   <link href="assets/vendor/owl.carousel/assets/owl.carousel.min.css" rel="stylesheet">
   <link href="assets/css/style.css" rel="stylesheet">
+
+  <!-- Card -->
+  <link rel="stylesheet" type="text/css" href="https://pixinvent.com/stack-responsive-bootstrap-4-admin-template/app-assets/css/bootstrap-extended.min.css">
+  <link rel="stylesheet" type="text/css" href="https://pixinvent.com/stack-responsive-bootstrap-4-admin-template/app-assets/fonts/simple-line-icons/style.min.css">
+  <link rel="stylesheet" type="text/css" href="https://pixinvent.com/stack-responsive-bootstrap-4-admin-template/app-assets/css/colors.min.css">
+  <link rel="stylesheet" type="text/css" href="https://pixinvent.com/stack-responsive-bootstrap-4-admin-template/app-assets/css/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+  <!-- End Card -->
 </head>
 
 <body>
@@ -34,7 +43,6 @@
       <nav class="nav-menu d-none d-lg-block">
         <ul>
           <li class="active"><a href="https://rizkiwahfiudin.my.id">Home</a></li>
-          <li><a href="provinsi.php">Daftar Provinsi</a></li>
           <li><a href="https://rizkiwahfiudin.my.id/blog">Blog</a></li>
           <li><a href="https://rizkiwahfiudin.my.id/covid19">Info Covid-19</a></li>
         </ul>
@@ -44,41 +52,32 @@
 
   <main id="main">
 
-    <section>
-      <div class="row mt-4">
-          <?php foreach ($kota as $key=>$val): ?>
-          <div class="col-sm-3">
-            <div class="card mb-3" style="max-width: 500px;">
-            <div class="row g-0">
-              <div class="col-md-4">
-                <img src=<?= $key; ?> width="100px" class="mt-4 img-thumbnail rounded mx-auto d-block">
-              </div>
-              <div class="col-md-8">
-                <div class="card-body">
-                  <h5 class="card-title"><?= $val; ?></h5>
-                  <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content</p>
-                  <p class="card-text"><small class="text-muted">Last updated <?= tanggal(); ?></small></p>
+    <div class="row mt-3"></div>
+    <div class="grey-bg container-fluid">
+      <section>
+        <div class="row">
+          <?php foreach ($result as $key=>$val): ?>
+            <div class="col-xl-3 col-sm-6 col-12">
+              <div class="card" style="height:160px">
+                <div class="card-content">
+                  <div class="card-body" style="max-width: 1000px;">
+                    <div class="media d-flex">
+                      <div class="align-self-center">
+                        <i class="icon-pointer danger font-large-2 float-left"></i>
+                      </div>
+                      <div class="media-body text-right">
+                        <h3><?= $val->nama; ?></h3>
+                        <span><a href="#">Select</a></span>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
+          <?php endforeach ?>
         </div>
-        <?php endforeach ?>
-      </div>
-    </section>
-
-    <section id="tampilan" class="tampilan">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-6 pt-4 pt-lg-0 content">
-            <h3>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor dolore, tenetur ut? Ducimus maxime incidunt voluptatum nobis corrupti eaque eum excepturi quam odio suscipit perspiciatis, eligendi possimus numquam hic ut.</h3>
-            <p>
-              Tampilan grid cuaca disini. Coming Soon!
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
+      </section>
+    </div>
 
   </main>
 
