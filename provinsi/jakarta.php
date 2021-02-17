@@ -32,11 +32,10 @@
 <body>
   <header id="header" class="fixed-top">
     <div class="container d-flex align-items-center">
-      <h1 class="logo mr-auto"><a href="index.html">Informasi Cuaca</a></h1>
+      <h1 class="logo mr-auto"><a href="index.php">Informasi Cuaca</a></h1>
       <nav class="nav-menu d-none d-lg-block">
         <ul>
-          <li class="active"><a href="https://rizkiwahfiudin.my.id">Home</a></li>
-          <li><a href="provinsi.php">Daftar Provinsi</a></li>
+          <li><a href="https://rizkiwahfiudin.my.id">Home</a></li>
           <li><a href="https://rizkiwahfiudin.my.id/blog">Blog</a></li>
           <li><a href="https://rizkiwahfiudin.my.id/covid19">Info Covid-19</a></li>
         </ul>

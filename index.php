@@ -1,8 +1,9 @@
 <?php
   include "function.php";
 
-  $provinsi = file_get_contents('https://ibnux.github.io/data-indonesia/propinsi.json');
+  $provinsi = file_get_contents('assets/data/provinsi.json');
   $result = json_decode($provinsi);
+  $link = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 ?>
 
 <!DOCTYPE html>
@@ -39,10 +40,10 @@
 <body>
   <header id="header" class="fixed-top">
     <div class="container d-flex align-items-center">
-      <h1 class="logo mr-auto"><a href="index.html">Info Cuaca</a></h1>
+      <h1 class="logo mr-auto"><a href="index.php">Informasi Cuaca</a></h1>
       <nav class="nav-menu d-none d-lg-block">
         <ul>
-          <li class="active"><a href="https://rizkiwahfiudin.my.id">Home</a></li>
+          <li><a href="https://rizkiwahfiudin.my.id">Home</a></li>
           <li><a href="https://rizkiwahfiudin.my.id/blog">Blog</a></li>
           <li><a href="https://rizkiwahfiudin.my.id/covid19">Info Covid-19</a></li>
         </ul>
@@ -56,7 +57,7 @@
     <div class="grey-bg container-fluid">
       <section>
         <div class="row">
-          <?php foreach ($result as $key=>$val): ?>
+          <?php foreach ($result as $val): ?>
             <div class="col-xl-3 col-sm-6 col-12">
               <div class="card" style="height:160px">
                 <div class="card-content">
@@ -67,7 +68,7 @@
                       </div>
                       <div class="media-body text-right">
                         <h3><?= $val->nama; ?></h3>
-                        <span><a href="#">Select</a></span>
+                        <span><a href=<?= $val->url; ?> >Select</a></span>
                       </div>
                     </div>
                   </div>
@@ -84,7 +85,7 @@
   <footer id="footer">
     <div class="container footer-bottom clearfix">
       <div class="copyright">
-        &copy; <?= date('Y'); ?> Created By <strong><span><a class="text-dark" href="https://rizkiwahfiudin.my.id/">Rizki Wahfiudin</a></span></strong>
+        &copy; <?= date('Y'); ?> | <strong><span><a class="text-dark" href="https://rizkiwahfiudin.my.id/">Rizki Wahfiudin</a></span></strong>
       </div>
       <div class="credits">
         Available On <a href="https://github.com/rizkiwahfiudin">GitHub</a>

@@ -99,6 +99,7 @@ function cuaca($wil){
 			$url = "?Prov=24&NamaProv=Papua";
 			break;
 		case "papua barat":
+		case "papua-barat":
 			$url = "?Prov=25&NamaProv=Papua%20Barat";
 			break;
 		case "riau":
