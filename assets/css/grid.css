@@ -9,16 +9,16 @@ body {
 .card {
     background-image: url("https://i.imgur.com/dpqZJV5.jpg");
     background-size: cover;
-    width: 600px;
-    height: 350px;
+    width: auto;
+    height: 300px;
     border-radius: 20px;
     box-shadow: 0px 8px 16px 4px #9E9E9E;
     margin-top: 50px;
-    margin-bottom: 50px
+    margin-bottom: 20px
 }
 
 .time-font {
-    font-size: 50px
+    font-size: 48px
 }
 
 .sm-font {
@@ -26,9 +26,9 @@ body {
 }
 
 .med-font {
-    font-size: 28px
+    font-size: 24px
 }
 
 .large-font {
-    font-size: 60px
+    font-size: 32px
 }

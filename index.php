@@ -68,7 +68,8 @@
                       </div>
                       <div class="media-body text-right">
                         <h3><?= $val->nama; ?></h3>
-                        <span><a href=<?= $val->url; ?> >Select</a></span>
+                        <!-- <span><a href=<?= $val->url; ?> >Select</a></span> -->
+                        <span><button type="button" onclick="setValue(<?= $val->url; ?>)" class="btn btn-info btn-sm">Select</button></span>
                       </div>
                     </div>
                   </div>
@@ -105,6 +106,13 @@
   <script src="assets/vendor/venobox/venobox.min.js"></script>
   <script src="assets/vendor/owl.carousel/owl.carousel.min.js"></script>
   <script src="assets/js/main.js"></script>
+  
+  <script type="text/javascript">
+    function setValue(nama) {
+      localStorage.setItem('Provinsi', nama);
+      window.location = window.location.href+'provinsi';
+    }
+  </script>
 
 </body>
 </html>

@@ -2,6 +2,7 @@
   include "../function.php";
   $file = '../assets/data/jakarta.json';
   $result = file_get_contents($file);
+  // $result = cuaca('jakarta');
   $data = json_decode($result, true);
 ?>
 
@@ -46,23 +47,20 @@
   <main id="main">
 
     <section>
-      <div class="row">
-        <?php foreach ($data as $val): ?>
-          <div class="container-fluid px-1 px-md-3 py-5 mx-auto">
-            <div class="row d-flex justify-content-center px-3">
-              <div class="col-sm-4">
-                <div class="card">
-                  <h2 class="ml-auto mr-4 mt-3 mb-0"><?= $val['Kota']; ?></h2>
-                  <p class="ml-auto mr-4 mb-0 med-font">Snow</p>
-                  <h1 class="ml-auto mr-4 large-font"><?= $val['Suhu']; ?>&#176;</h1>
-                  <h1 class="ml-auto mr-4 med-font"><?= $val['Kelembaban']; ?></h1>
-                  <p class="time-font mb-0 ml-4 mt-auto"> <?= waktu(); ?> <span class="sm-font">WIB</span></p>
-                  <p class="ml-4 mb-4"><?= tanggalLengkap(); ?></p>
-                </div>
+      <div class="container-fluid px-1 px-md-3 px-sm-3 mx-auto">
+        <div class="row d-flex justify-content-center px-3">
+          <?php foreach ($data as $val): ?>
+            <div class="col-sm-3">
+              <div class="card">
+                <h2 class="ml-auto mr-4 mt-3 mb-0"><?= $val['Kota']; ?></h2>
+                <p class="ml-auto mr-4 mb-0 med-font"><?= $val['Dini Hari']; ?></p>
+                <h1 class="ml-auto mr-4 large-font"><?= $val['Suhu']; ?>&#176;</h1>
+                <p class="time-font mb-0 ml-4 mt-auto"> <?= waktu(); ?> <span class="sm-font">WIB</span></p>
+                <p class="ml-4 mb-4"><?= tanggalLengkap(); ?></p>
               </div>
             </div>
-          </div>
-        <?php endforeach ?>
+          <?php endforeach ?>
+        </div>
       </div>
     </section>
 
@@ -91,6 +89,11 @@
   <script src="../assets/vendor/venobox/venobox.min.js"></script>
   <script src="../assets/vendor/owl.carousel/owl.carousel.min.js"></script>
   <script src="../assets/js/main.js"></script>
+  <script type="text/javascript">
+    let val = localStorage.getItem('Provinsi');
+    console.log(val);
+    localStorage.clear();
+  </script>
 
 </body>
 </html>
